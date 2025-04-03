@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "types": ["node"],
+    "outDir": "./dist-node",
+    "rootDir": ".", // ✅ غيّر من "./src" إلى "." لتشمل الملفات في الجذر
+    "target": "ES2022",
+    "sourceMap": true
+  },
+  "include": ["vite.config.ts"],
+  "exclude": ["node_modules"]
+}

@@ -1,0 +1,8 @@
+node_modules/
+dist/
+build/
+jest.config.*
+tailwind.config.*
+*.d.ts
+my-vue-app\index.d.ts
+ "./tsconfig.eslint.json"

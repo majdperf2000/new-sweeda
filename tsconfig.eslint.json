@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
+    "jest.config.ts",
+    "tailwind.config.ts",
+    "vite.config.ts",
+    "src/vite-env.d.ts",
+    "my-vue-app/index.d.ts"
+  ]
+  "exclude": ["node_modules"],
+}

@@ -1,0 +1,41 @@
+# ----- ملفات التكوين والأدوات -----
+*.config.*
+.env*
+.eslintrc*
+.prettierrc*
+babel.config.*
+rollup.config.*
+webpack.config.*
+tsconfig.json
+tsconfig.*.json
+
+# ----- مجلدات النظام والتبعيات -----
+node_modules/
+dist/
+build/
+out/
+coverage/
+.next/
+.nuxt/
+.cache/
+.turbo/
+
+# ----- ملفات البناء والنسخ -----
+*.min.js
+*.min.css
+*.d.ts
+*.log
+*.lock
+
+# ----- ملفات الأنواع (TypeScript) -----
+**/vite-env.d.ts
+**/global.d.ts
+**/typings.d.ts
+
+# ----- اختبارات غير معيارية -----
+**/__mocks__/
+**/__snapshots__/
+
+# ----- إستثناءات خاصة بالمشروع -----
+!.storybook/  # إذا كنت تستخدم Storybook
+!.github/     # إذا كان لديك إعدادات GitHub

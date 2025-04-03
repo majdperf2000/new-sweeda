@@ -1,0 +1,27 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "types": ["vite/client", "node"],
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx"
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "my-vue-app/index.d.ts"],
+  "exclude": [
+    "node_modules",
+    "vite.config.ts",
+    "jest.config.ts",
+    "tailwind.config.ts",
+    "**/*.d.ts"
+  ],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
