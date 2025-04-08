@@ -1,4 +1,3 @@
-
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PageTransition from '@/components/animations/page-transition.js';
 
@@ -16,6 +15,7 @@ import OrderTracking from '@/pages/OrderTracking.js';
 import Stores from '@/pages/Stores.js';
 import StoresMap from '@/pages/StoresMap.js';
 import NotFound from '@/pages/NotFound.js';
+import "@/styles/global.css"; // يجب أن يعمل بدون أخطاء
 import DeliveryDashboard from '@/pages/DeliveryDashboard.js';
 
 function App() {

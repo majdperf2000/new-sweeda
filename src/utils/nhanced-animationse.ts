@@ -175,7 +175,7 @@ class Animation {
     if (typeof this.options.easing === 'function') {
       return this.options.easing;
     }
-    
+
     const easingName = this.options.easing || 'easeOutQuad';
     return easingFunctions[easingName] || easingFunctions['easeOutQuad'];
   }
@@ -287,15 +287,17 @@ const easingFunctions: EasingFunctions = {
   linear: (t: number) => t,
   easeInQuad: (t: number) => t * t,
   easeOutQuad: (t: number) => t * (2 - t),
-  easeInOutQuad: (t: number) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t,
+  easeInOutQuad: (t: number) => (t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t),
   easeInCubic: (t: number) => t * t * t,
-  easeOutCubic: (t: number) => (--t) * t * t + 1,
-  easeInOutCubic: (t: number) => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1,
+  easeOutCubic: (t: number) => --t * t * t + 1,
+  easeInOutCubic: (t: number) =>
+    t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1,
   easeInElastic: (t: number) => (0.04 - 0.04 / t) * Math.sin(25 * t) + 1,
-  easeOutElastic: (t: number) => ((0.04 * t) / (--t)) * Math.sin(25 * t),
-  easeInOutElastic: (t: number) => (t -= 0.5) < 0
-    ? (0.02 + 0.01 / t) * Math.sin(50 * t)
-    : (0.02 - 0.01 / t) * Math.sin(50 * t) + 1,
+  easeOutElastic: (t: number) => ((0.04 * t) / --t) * Math.sin(25 * t),
+  easeInOutElastic: (t: number) =>
+    (t -= 0.5) < 0
+      ? (0.02 + 0.01 / t) * Math.sin(50 * t)
+      : (0.02 - 0.01 / t) * Math.sin(50 * t) + 1,
   easeInBounce: (t: number) => 1 - easingFunctions.easeOutBounce(1 - t),
   easeOutBounce: (t: number) => {
     if (t < 1 / 2.75) {
@@ -325,19 +327,13 @@ const NhancedAnimations = {
     return animation;
   },
 
-  animatePath(
-    element: SVGPathElement,
-    options: AnimationOptions
-  ): PathAnimation {
+  animatePath(element: SVGPathElement, options: AnimationOptions): PathAnimation {
     const animation = new PathAnimation(element, options);
     elementCache.set(element, animation);
     return animation;
   },
 
-  animateWave(
-    element: HTMLElement,
-    options: AnimationOptions
-  ): WaveAnimation {
+  animateWave(element: HTMLElement, options: AnimationOptions): WaveAnimation {
     const animation = new WaveAnimation(element, options);
     elementCache.set(element, animation);
     return animation;

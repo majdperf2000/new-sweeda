@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import path from 'node:path';
+import path from 'path';
 import { visualizer } from 'rollup-plugin-visualizer';
 import compression from 'vite-plugin-compression';
 
@@ -23,6 +23,7 @@ export default defineConfig({
       '@mui/material': '@mui/material',
       '@emotion/react': '@emotion/react',
       '@emotion/styled': '@emotion/styled',
+      styles: path.resolve(__dirname, './src/styles'),
     },
   },
   server: {
@@ -58,7 +59,8 @@ export default defineConfig({
       },
     },
   },
-  css: { // <-- نقل إعدادات CSS إلى المكان الصحيح
+  css: {
+    // <-- نقل إعدادات CSS إلى المكان الصحيح
     postcss: {
       configFilePath: './postcss.config.cjs',
     },
@@ -79,8 +81,6 @@ export default defineConfig({
       'sonner',
       'react-redux',
     ],
-    exclude: [
-      'js-big-decimal',
-    ],
+    exclude: ['js-big-decimal'],
   },
 });

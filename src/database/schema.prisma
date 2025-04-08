@@ -1,0 +1,55 @@
+model User {
+  // ...
+  @@index([createdAt], name: "user_created_at_idx")
+  @@index([email, role], name: "user_email_role_idx")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String     @id @default(uuid())
+  email           String     @unique
+  passwordHash    String
+  role            UserRole   @default(USER)
+  activeSessionId String?
+  sessions        Session[]
+  securityLogs    SecurityLog[]
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+
+  @@index([email])
+}
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+model Session {
+  id           String   @id @default(uuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id])
+  valid        Boolean  @default(true)
+  userAgent    String?
+  ipAddress    String?
+  expiresAt    DateTime
+  createdAt    DateTime @default(now())
+}
+
+model SecurityLog {
+  id        String   @id @default(uuid())
+  eventType String
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  ip        String?
+  userAgent String?
+  metadata  Json?
+  createdAt DateTime @default(now())
+}

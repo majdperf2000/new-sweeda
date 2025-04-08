@@ -3,8 +3,7 @@ import { ArrowRight, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button.js';
 import SearchBar from '@/components/ui/SearchBar.tsx';
 import { cn } from '@/lib/utils.js';
-import { DELAY_300, DELAY_400 } from "@/utils/enhanced-animations.js";
-
+import { DELAY_300, DELAY_400 } from '@/utils/enhanced-animations.js';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);

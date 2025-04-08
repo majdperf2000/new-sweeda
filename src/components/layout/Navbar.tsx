@@ -18,7 +18,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu.js';
 import { ThemeSwitcher } from '@/components/ui/theme-switcher.js';
-import { NAV_ITEM_HOVER, BUTTON_CLICK, PAGE_TRANSITION } from '@/utils/enhanced-animations,js';
+import { NAV_ITEM_HOVER, BUTTON_CLICK, PAGE_TRANSITION } from '@/utils/enhanced-animations.js';
 import MainNavigation from './MainNavigation.js';
 import { useCart } from '@/hooks/use-cart.js';
 import { useAuth } from '@/hooks/use-auth.js';

@@ -6,12 +6,12 @@
 /* ────────────────────────────────────────────── */
 /*                   الاستيرادات                   */
 /* ────────────────────────────────────────────── */
-@import './styles/base.css';        /* الأنماط الأساسية */
-@import './styles/theme.css';       /* المتغيرات */
-@import './styles/typography.css';  /* الخطوط */
-@import './styles/animations.css';  /* الحركات */
-@import './styles/utilities.css';   /* الأدوات المساعدة */
-@import './styles/scrollbar.css';   /* تخصيص شريط التمرير */
+@import './styles/base.css'; /* الأنماط الأساسية */
+@import './styles/theme.css'; /* المتغيرات */
+@import './styles/typography.css'; /* الخطوط */
+@import './styles/animations.css'; /* الحركات */
+@import './styles/utilities.css'; /* الأدوات المساعدة */
+@import './styles/scrollbar.css'; /* تخصيص شريط التمرير */
 
 /* ────────────────────────────────────────────── */
 /*             مكونات Tailwind المخصصة             */

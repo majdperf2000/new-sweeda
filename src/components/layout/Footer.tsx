@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button.js';
 import { Input } from '@/components/ui/input.js';
-import { useNewsletter } from '@/hooks/useNewsletter.js';
+import { useNewsletter } from '@/hooks/useNewsletter.tsx';
 
 // بيانات يمكن استيرادها من ملف خارجي لتسهيل التعديل
 const footerLinks = [

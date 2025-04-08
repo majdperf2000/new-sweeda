@@ -9,16 +9,15 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "lib": ["dom", "dom.iterable", "esnext"],
-    "target": "ESNext", // ◀️ تم التعديل من ES2022 → ESNext
-    "module": "NodeNext", // ◀️ تم التعديل من NodeNext → ESNext
-    "moduleResolution": "NodeNext", // ◀️ يبقى كما هو (متوافق مع نظام الوحدات)
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "composite": true,
     "declaration": true,
     "declarationMap": true,
     "allowImportingTsExtensions": true,
     "outDir": "./dist",
     "rootDir": "./src",
-    "styles/*": ["./styles/*"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
@@ -28,15 +27,20 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "isolatedModules": true,
-    "jsx": "react-jsx" // ◀️ إعداد صحيح لدعم React + JSX
+    "jsx": "react-jsx"
   },
   "include": [
-    "src/**/*" // ◀️ تم إزالة jest.config.ts من هنا
+    "src/**/*",
+    "vite.config.ts",
+    "env.d.ts"
   ],
   "exclude": [
     "node_modules",
     "dist",
-    "jest.config.ts" // ◀️ يُستبعد بشكل صريح
+    "**/*.spec.ts",
+    "jest.config.ts"
   ],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [
+    { "path": "./tsconfig.node.json" }
+  ]
 }
