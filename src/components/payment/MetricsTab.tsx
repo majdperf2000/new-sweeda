@@ -1,6 +1,6 @@
 import React from 'react';
 import { ShieldCheck, TrendingUp, ArrowRight } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.js';
 
 export const MetricsTab: React.FC = () => {
   return (

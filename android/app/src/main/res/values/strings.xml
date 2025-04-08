@@ -1,0 +1,6 @@
+<!-- app/src/main/res/values/strings.xml -->
+<resources>
+    <string name="app_name">Your App</string>
+    <string name="title_activity_main">Main Activity</string>
+    <string name="default_notification_channel_id">default_channel</string>
+</resources>

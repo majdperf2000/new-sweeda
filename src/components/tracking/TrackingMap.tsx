@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Map, Navigation } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
-import { useToast } from '@/components/ui/use-toast';
+import { Button } from '@/components/ui/button.js';
+import { Label } from '@/components/ui/label.js';
+import { Input } from '@/components/ui/input.js';
+import { useToast } from '@/components/ui/use-toast.js';
 
 interface DriverLocation {
   lat: number;

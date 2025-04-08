@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { PageTransition } from '@/components/ui/page-transition';
-import MainLayout from '@/components/layout/MainLayout';
+import PageTransition from '@/components/animations/page-transition.js';
+import MainLayout from '@/components/layout/MainLayout.js';
 import {
   SidebarProvider,
   Sidebar,
@@ -13,11 +13,11 @@ import {
   SidebarMenuButton,
   SidebarTrigger,
   SidebarInset,
-} from '@/components/ui/sidebar';
-import { ControlPanelsContent } from '@/components/controlPanel/ControlPanelsContent';
+} from '@/components/ui/sidebar.js';
+import { ControlPanelsContent } from '@/components/controlPanel/ControlPanelsContent.js';
 import { LayoutDashboard, Store, Truck, ShieldCheck, Cpu, Bell, AlertCircle } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/Badge.js';
+import { Button } from '@/components/ui/button.js';
 import { toast } from 'sonner';
 
 // Panel types based on existing data

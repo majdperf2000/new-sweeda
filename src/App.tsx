@@ -1,81 +1,142 @@
-import React from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Index from '@/pages/Index';
-import Auth from '@/pages/Auth';
-import Register from '@/pages/Register';
-import Dashboard from '@/pages/Dashboard';
-import StoreOwnerDashboard from '@/pages/StoreOwnerDashboard';
-import Checkout from '@/pages/Checkout';
-import Cart from '@/pages/Cart';
-import ProductDetail from '@/pages/ProductDetail';
-import ControlPanels from '@/pages/ControlPanels';
-import OrderTracking from '@/pages/OrderTracking';
-import Stores from '@/pages/Stores';
-import StoresMap from '@/pages/StoresMap';
-import NotFound from '@/pages/NotFound';
-import DeliveryDashboard from '@/pages/DeliveryDashboard';
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Index />,
-  },
-  {
-    path: '/login',
-    element: <Auth />,
-  },
-  {
-    path: '/register',
-    element: <Register />,
-  },
-  {
-    path: '/dashboard',
-    element: <Dashboard />,
-  },
-  {
-    path: '/store-owner',
-    element: <StoreOwnerDashboard />,
-  },
-  {
-    path: '/delivery-dashboard',
-    element: <DeliveryDashboard />,
-  },
-  {
-    path: '/checkout',
-    element: <Checkout />,
-  },
-  {
-    path: '/cart',
-    element: <Cart />,
-  },
-  {
-    path: '/product/:id',
-    element: <ProductDetail />,
-  },
-  {
-    path: '/control-panels',
-    element: <ControlPanels />,
-  },
-  {
-    path: '/order-tracking',
-    element: <OrderTracking />,
-  },
-  {
-    path: '/stores',
-    element: <Stores />,
-  },
-  {
-    path: '/stores-map',
-    element: <StoresMap />,
-  },
-  {
-    path: '/*',
-    element: <NotFound />,
-  },
-]);
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import PageTransition from '@/components/animations/page-transition.js';
+
+// استيراد المكونات مع تصحيح الامتدادات لTypeScript
+import Index from '@/pages/Index.js';
+import Auth from '@/pages/Auth.js';
+import Register from '@/pages/Register.js';
+import Dashboard from '@/pages/Dashboard.js';
+import StoreOwnerDashboard from '@/pages/StoreOwnerDashboard.js';
+import Checkout from '@/pages/Checkout.js';
+import Cart from '@/pages/Cart.js';
+import ProductDetail from '@/pages/ProductDetail.js';
+import ControlPanels from '@/pages/ControlPanels.js';
+import OrderTracking from '@/pages/OrderTracking.js';
+import Stores from '@/pages/Stores.js';
+import StoresMap from '@/pages/StoresMap.js';
+import NotFound from '@/pages/NotFound.js';
+import DeliveryDashboard from '@/pages/DeliveryDashboard.js';
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <PageTransition>
+              <Index />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <PageTransition>
+              <Auth />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <PageTransition>
+              <Register />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/dashboard"
+          element={
+            <PageTransition>
+              <Dashboard />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/store-owner"
+          element={
+            <PageTransition>
+              <StoreOwnerDashboard />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/delivery-dashboard"
+          element={
+            <PageTransition>
+              <DeliveryDashboard />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <PageTransition>
+              <Checkout />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <PageTransition>
+              <Cart />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/product/:id"
+          element={
+            <PageTransition>
+              <ProductDetail />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/control-panels"
+          element={
+            <PageTransition>
+              <ControlPanels />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/order-tracking"
+          element={
+            <PageTransition>
+              <OrderTracking />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/stores"
+          element={
+            <PageTransition>
+              <Stores />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/stores-map"
+          element={
+            <PageTransition>
+              <StoresMap />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/*"
+          element={
+            <PageTransition>
+              <NotFound />
+            </PageTransition>
+          }
+        />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;

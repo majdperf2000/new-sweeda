@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { useToast } from '@/components/ui/use-toast';
-import { toast as sonnerToast } from 'sonner'; // Import sonner toast for success notifications
+import { Button } from '@/components/ui/button.js';
+import { Input } from '@/components/ui/input.js'; // تم التصحيح هنا
+import { Label } from '@/components/ui/label.js';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card.js';
+import { useToast } from '@/components/ui/use-toast.js';
+import { toast as sonnerToast } from 'sonner';
 import { Eye, EyeOff, Shield } from 'lucide-react';
 
 const Auth = () => {
@@ -18,15 +18,13 @@ const Auth = () => {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const navigate = useNavigate();
-  const { toast } = useToast();
+  const { toast } = useToast(); // تم التصحيح هنا
 
-  // Email validation function
   const isValidEmail = (email: string) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
   };
 
-  // Password validation function
   const isValidPassword = (password: string) => {
     return password.length >= 8;
   };
@@ -59,47 +57,39 @@ const Auth = () => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!validateForm()) {
-      return;
-    }
+    if (!validateForm()) return;
 
     setLoading(true);
-
-    // Simulate API call with JWT token generation
     setTimeout(() => {
       setLoading(false);
-
-      // Simulate JWT token creation and storage
-      const fakeJwtToken = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxMjM0NTYiLCJyb2xlIjoiJHthY2NvdW50VHlwZX0iLCJpYXQiOjE2MTYxNjI4MDAsImV4cCI6MTYxNjE2NjQwMH0`;
+      const fakeJwtToken = `eyJhbGci...`;
       localStorage.setItem('auth_token', fakeJwtToken);
-
-      // Log user activity (for auditing)
       console.log(`User login: ${email}, Type: ${accountType}, Time: ${new Date().toISOString()}`);
 
-      // Redirect based on account type
-      if (accountType === 'delivery') {
-        navigate('/delivery-dashboard');
-        sonnerToast.success('تم تسجيل دخول سائق التوصيل بنجاح');
-      } else if (accountType === 'store') {
-        navigate('/store-owner');
-        sonnerToast.success('تم تسجيل دخول صاحب المتجر بنجاح');
-      } else if (accountType === 'customer') {
-        navigate('/dashboard');
-        sonnerToast.success('تم تسجيل دخول العميل بنجاح');
-      } else if (accountType === 'admin') {
-        navigate('/control-panels');
-        sonnerToast.success('تم تسجيل دخول المدير بنجاح');
-      } else {
-        navigate('/dashboard');
-        sonnerToast.success('تم تسجيل الدخول بنجاح');
-      }
+      const redirectPaths: { [key: string]: string } = {
+        delivery: '/delivery-dashboard',
+        store: '/store-owner',
+        customer: '/dashboard',
+        admin: '/control-panels',
+      };
+      navigate(redirectPaths[accountType] || '/dashboard');
+      sonnerToast.success(`تم تسجيل دخول ${getUserType(accountType)} بنجاح`);
     }, 1500);
   };
 
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
+  const getUserType = (type: string) => {
+    const types: { [key: string]: string } = {
+      delivery: 'سائق التوصيل',
+      store: 'صاحب المتجر',
+      customer: 'العميل',
+      admin: 'المدير',
+    };
+    return types[type] || 'المستخدم';
   };
+
+  const togglePasswordVisibility = () => setShowPassword(!showPassword);
+  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value);
+  const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value);
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -120,12 +110,12 @@ const Auth = () => {
             <form onSubmit={handleLogin} className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="email">البريد الإلكتروني</Label>
-                <Input
+                <Input // تم التصحيح هنا
                   id="email"
                   placeholder="أدخل بريدك الإلكتروني"
                   type="email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={handleEmailChange}
                   className={emailError ? 'border-red-500' : ''}
                 />
                 {emailError && <p className="text-red-500 text-xs mt-1">{emailError}</p>}
@@ -133,12 +123,12 @@ const Auth = () => {
               <div className="space-y-2">
                 <Label htmlFor="password">كلمة المرور</Label>
                 <div className="relative">
-                  <Input
+                  <Input // تم التصحيح هنا
                     id="password"
                     placeholder="أدخل كلمة المرور"
                     type={showPassword ? 'text' : 'password'}
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={handlePasswordChange}
                     className={passwordError ? 'border-red-500 pr-10' : 'pr-10'}
                   />
                   <button

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import SecurityArchitecture from './SecurityArchitecture';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs.js';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.js';
+import SecurityArchitecture from './SecurityArchitecture.js';
 import { Shield, Lock, Server, FileCode } from 'lucide-react';
 
 const SecurityImplementation = () => {

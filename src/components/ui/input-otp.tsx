@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { OTPInput, OTPInputContext } from 'input-otp';
 import { Dot } from 'lucide-react';
+import { cn } from '@/lib/utils.js';
 
-import { cn } from '@/lib/utils';
-
+// التصدير الرئيسي المعدل
 const InputOTP = React.forwardRef<
   React.ElementRef<typeof OTPInput>,
   React.ComponentPropsWithoutRef<typeof OTPInput>
@@ -66,4 +66,6 @@ const InputOTPSeparator = React.forwardRef<
 ));
 InputOTPSeparator.displayName = 'InputOTPSeparator';
 
+// التصدير النهائي المعدل
 export { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator };
+export default InputOTP; // ◀️ تصدير افتراضي واحد

@@ -1,18 +1,18 @@
 // إزالة React من الاستيراد لأننا نستخدم JSX تلقائيًا في React 17+
 import { useState } from 'react';
-import { PageTransition } from '@/components/ui/page-transition';
-import MainLayout from '@/components/layout/MainLayout';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
+import PageTransition from '@/components/animations/page-transition.js';
+import MainLayout from '@/components/layout/MainLayout.js';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs.js';
+import { Card, CardContent } from '@/components/ui/card.js';
+import { Badge } from '@/components/ui/Badge.js';
+import { Button } from '@/components/ui/button.js';
 import { AlertCircle, RefreshCw, Package } from 'lucide-react';
 import { toast } from 'sonner';
-import InventoryManagement from '@/components/storeOwner/InventoryManagement';
-import OrderManagement from '@/components/storeOwner/OrderManagement';
-import CustomerInsights from '@/components/storeOwner/CustomerInsights';
-import SalesReports from '@/components/storeOwner/SalesReports';
-import ToolsIntegrations from '@/components/storeOwner/ToolsIntegrations';
+import InventoryManagement from '@/components/storeOwner/InventoryManagement.js';
+import OrderManagement from '@/components/storeOwner/OrderManagement.js';
+import CustomerInsights from '@/components/storeOwner/CustomerInsights.js';
+import SalesReports from '@/components/storeOwner/SalesReports.js';
+import ToolsIntegrations from '@/components/storeOwner/ToolsIntegrations.js';
 
 const StoreOwnerDashboard = () => {
   const [activeTab, setActiveTab] = useState('inventory');

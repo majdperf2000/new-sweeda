@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { PageTransition } from '@/components/ui/page-transition';
-import MainLayout from '@/components/layout/MainLayout';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import PageTransition from '@/components/animations/page-transition.js';
+import MainLayout from '@/components/layout/MainLayout.js';
+import { Button } from '@/components/ui/button.js';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card.js';
+import { Separator } from '@/components/ui/separator.js';
+import { Input } from '@/components/ui/input.js';
+import { Label } from '@/components/ui/label.js';
 
 const Checkout = () => {
   const [step, setStep] = useState(1);

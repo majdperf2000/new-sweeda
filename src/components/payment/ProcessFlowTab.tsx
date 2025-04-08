@@ -1,7 +1,7 @@
 import React from 'react';
 import { CheckCircle, AlertCircle, Clock } from 'lucide-react';
-import type { PaymentFlow } from './types';
-import { getStatusColor } from './utils';
+import type { PaymentFlow } from './types.js';
+import { getStatusColor } from './utils.js';
 
 interface ProcessFlowTabProps {
   paymentFlow: PaymentFlow;

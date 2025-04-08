@@ -1,34 +1,15 @@
 {
-  "root": true,
-  "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "react", "react-hooks"],
   "extends": [
-    "eslint:recommended",
+    "airbnb-typescript",
     "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended"
+    "plugin:react/recommended"
   ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": "./tsconfig.eslint.json", // تم تصحيح النقطتين الرأسيتين هنا
-    "tsconfigRootDir": "__dirname", // أضيفت علامات الاقتباس
-    "ecmaVersion": 2021,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    }
+    "project": "./tsconfig.json" // تأكد من وجود هذا السطر
   },
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  },
+  "plugins": ["@typescript-eslint", "react"],
   "rules": {
-    "react/react-in-jsx-scope": "off",
-    "@typescript-eslint/no-unused-vars": "warn",
-    "react-hooks/exhaustive-deps": "error"
-  },
-  "env": {
-    "browser": true,
-    "node": true
+    // يمكنك إضافة القواعد الخاصة بك هنا
   }
 }

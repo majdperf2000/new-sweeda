@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import MainLayout from '@/components/layout/MainLayout';
-import { PageTransition } from '@/components/ui/page-transition';
-import { Card } from '@/components/ui/card';
-import { OrderSearch } from '@/components/tracking/OrderSearch';
-import { OrderHeader } from '@/components/tracking/OrderHeader';
-import { OrderTabs } from '@/components/tracking/OrderTabs';
-import { OrderItems } from '@/components/tracking/OrderItems';
-import type { OrderData } from '@/components/tracking/types';
-import type { PaymentFlow } from '@/components/payment/types';
+import MainLayout from '@/components/layout/MainLayout.js';
+import PageTransition from '@/components/animations/page-transition.js';
+import { Card } from '@/components/ui/card.js';
+import { OrderSearch } from '@/components/tracking/OrderSearch.js';
+import { OrderHeader } from '@/components/tracking/OrderHeader.js';
+import { OrderTabs } from '@/components/tracking/OrderTabs.js';
+import { OrderItems } from '@/components/tracking/OrderItems.js';
+import type { OrderData } from '@/components/tracking/types.js';
+import type { PaymentFlow } from '@/components/payment/types.js';
 
 const OrderTracking = () => {
   const [isTracking, setIsTracking] = useState(false);

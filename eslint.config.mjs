@@ -1,58 +1,71 @@
-import js from '@eslint/js';
-import globals from 'globals';
-import reactHooks from 'eslint-plugin-react-hooks';
-import reactRefresh from 'eslint-plugin-react-refresh';
-import tseslint from 'typescript-eslint';
+import js from "@eslint/js";
+import eslintConfigPrettier from "eslint-config-prettier";
+import { FlatCompat } from "@eslint/eslintrc";
+import path from "path";
+import { fileURLToPath } from "url";
+import reactRecommended from "eslint-plugin-react/configs/recommended.js";
+import globals from "globals";
+import tsParser from "@typescript-eslint/parser";
 
-export default tseslint.config(
-  { ignores: ['dist'] },
+// تحديد المسار الجذر للمشروع
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+  resolvePluginsRelativeTo: __dirname
+});
+
+export default [
+  js.configs.recommended,
+  reactRecommended,
+
+  // تكوينات Airbnb (بدون ignores داخل extends)
+  ...compat.extends("airbnb", "airbnb-typescript"),
+
+  // تكوين TypeScript مع إعدادات دقيقة
   {
-    extends: [
-      js.configs.recommended,
-      ...tseslint.configs.recommended,
+    files: ["**/*.ts", "**/*.tsx"],
+    ignores: [
+      "**/eslint.config.*",
+      "**/*.config.*",
+      "**/dist/**" // إضافة إذا لزم الأمر
     ],
-    files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
-      ecmaVersion: 2022,
+      parser: tsParser,
+      parserOptions: {
+        project: "./tsconfig.json", // مسار نسبي
+        tsconfigRootDir: __dirname
+      }
+    },
+    plugins: {
+      "@typescript-eslint":import("@typescript-eslint/eslint-plugin")
+    }
+  },
+
+  // Global variables
+  {
+    ignores: ["**/eslint.config.*", "**/*.config.*"], // نقل ignores هنا
+    languageOptions: {
       globals: {
         ...globals.browser,
         ...globals.node,
-      },
-      parserOptions: {
-        project: true, // البحث التلقائي عن tsconfig.json
-        tsconfigRootDir: import.meta.dirname,
-      },
-    },
-    plugins: {
-      '@typescript-eslint': tseslint.plugin,
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
-    },
-    rules: {
-      ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
-      '@typescript-eslint/no-unused-vars': 'error', // تم التعديل من off إلى error
-      '@typescript-eslint/consistent-type-imports': 'error', // إضافة قاعدة جديدة
-      '@typescript-eslint/no-explicit-any': 'warn', // إضافة تحذير لاستخدام any
-    },
+        ...globals.es2021
+      }
+    }
   },
+
+  // القواعد المخصصة
   {
-    // إعدادات خاصة بملفات JavaScript
-    files: ['**/*.js', '**/*.jsx'],
-    languageOptions: {
-      globals: globals.browser,
-      parserOptions: {
-        sourceType: 'module',
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
-    },
     rules: {
-      'no-unused-vars': 'warn', // قاعدة خاصة بملفات JS
-    },
-  }
-);
+      "no-console": "warn",
+      "react/react-in-jsx-scope": "off",
+      "import/no-extraneous-dependencies": ["error", { 
+        devDependencies: ["**/*.test.*", "**/*.config.*"] 
+      }],
+      "@typescript-eslint/dot-notation": ["error", { allowKeywords: true }]
+    }
+  },
+
+  // Prettier في النهاية
+  eslintConfigPrettier
+];

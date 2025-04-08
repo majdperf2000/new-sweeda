@@ -2,26 +2,41 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "noEmit": true,
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "strict": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "ESNext", // ◀️ تم التعديل من ES2022 → ESNext
+    "module": "NodeNext", // ◀️ تم التعديل من NodeNext → ESNext
+    "moduleResolution": "NodeNext", // ◀️ يبقى كما هو (متوافق مع نظام الوحدات)
     "composite": true,
     "declaration": true,
     "declarationMap": true,
+    "allowImportingTsExtensions": true,
     "outDir": "./dist",
     "rootDir": "./src",
-    "types": ["vite/client", "node"],
+    "styles/*": ["./styles/*"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "types": ["node"],
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "jsx": "react-jsx"
+    "isolatedModules": true,
+    "jsx": "react-jsx" // ◀️ إعداد صحيح لدعم React + JSX
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "my-vue-app/index.d.ts"],
+  "include": [
+    "src/**/*" // ◀️ تم إزالة jest.config.ts من هنا
+  ],
   "exclude": [
     "node_modules",
-    "vite.config.ts",
-    "jest.config.ts",
-    "tailwind.config.ts",
-    "**/*.d.ts"
+    "dist",
+    "jest.config.ts" // ◀️ يُستبعد بشكل صريح
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingCart, Heart, Share2, ChevronLeft, Check, Plus, Minus } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { PageTransition } from '@/components/ui/page-transition';
-import MainLayout from '@/components/layout/MainLayout';
-import { products } from '@/utils/mockData';
+import { Button } from '@/components/ui/button.js';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs.js';
+import PageTransition from '@/components/animations/page-transition.js';
+import MainLayout from '@/components/layout/MainLayout.js';
+import { products } from '@/utils/mockData.js';
 
 const ProductDetail = () => {
   const { id } = useParams();

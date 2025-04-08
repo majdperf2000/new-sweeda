@@ -1,9 +1,8 @@
-import type { useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { Separator } from '@/components/ui/separator';
-import type { ControlPanelSection } from './ControlPanelSection';
-import type { ControlPanelProps } from './types';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.js';
+import { ScrollArea } from '@/components/ui/scroll-area.js';
+import { Separator } from '@/components/ui/separator.js';
+import { ControlPanelSection } from './ControlPanelSection.js';
+import type { ControlPanelProps } from './types.js';
 
 export const ControlPanel: React.FC<ControlPanelProps> = ({
   panel,

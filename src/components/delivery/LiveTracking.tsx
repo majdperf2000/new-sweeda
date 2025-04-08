@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Map, Navigation, Share, RefreshCw, Truck, MapPin, Clock, Info } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { TrackingMap } from '@/components/tracking/TrackingMap';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card.js';
+import { Badge } from '@/components/ui/Badge.js';
+import { Button } from '@/components/ui/button.js';
+import { TrackingMap } from '@/components/tracking/TrackingMap.js';
 import {
   Table,
   TableBody,
@@ -11,9 +11,9 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { Input } from '@/components/ui/input';
+} from '@/components/ui/table.js';
+import { ScrollArea } from '@/components/ui/scroll-area.js';
+import { Input } from '@/components/ui/input.js';
 import { toast } from 'sonner';
 
 // Mock data for active deliveries

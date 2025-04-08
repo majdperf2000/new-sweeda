@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { PageTransition } from '@/components/ui/page-transition';
-import MainLayout from '@/components/layout/MainLayout';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import PageTransition from '@/components/animations/page-transition.js';
+import MainLayout from '@/components/layout/MainLayout.js';
+import { Card, CardContent } from '@/components/ui/card.js';
+import { Button } from '@/components/ui/button.js';
+import { Input } from '@/components/ui/input.js';
 import { MapPin, Clock, Phone, ArrowRight } from 'lucide-react';
 
 const Stores = () => {

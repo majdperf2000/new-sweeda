@@ -1,10 +1,11 @@
 // FileUpload.tsx
 import { useState } from 'react';
-import { Button } from '../ui/button';
-import { Input } from '../ui/input';
+import { Button } from '../ui/button.js';
+import { Input } from '../ui/input.js';
 
 // 1. تجنب استخدام any بتعريف نوع مخصص للبيانات
 interface UploadedFile {
+  accept?: string;
   name: string;
   size: number;
   type: string;

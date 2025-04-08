@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import MainLayout from '@/components/layout/MainLayout';
-import { PageTransition } from '@/components/ui/page-transition';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import MainLayout from '@/components/layout/MainLayout.js';
+import PageTransition from '@/components/animations/page-transition.js';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs.js';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.js';
 
-import OrderAssignment from '@/components/delivery/OrderAssignment';
-import LiveTracking from '@/components/delivery/LiveTracking';
-import DriverManagement from '@/components/delivery/DriverManagement';
-import RouteOptimization from '@/components/delivery/RouteOptimization';
-import FleetAnalytics from '@/components/delivery/FleetAnalytics';
-import DeliverySystemStructure from '@/components/delivery/DeliverySystemStructure';
+import OrderAssignment from '@/components/delivery/OrderAssignment.js';
+import LiveTracking from '@/components/delivery/LiveTracking.js';
+import DriverManagement from '@/components/delivery/DriverManagement.js';
+import RouteOptimization from '@/components/delivery/RouteOptimization.js';
+import FleetAnalytics from '@/components/delivery/FleetAnalytics.js';
+import DeliverySystemStructure from '@/components/delivery/DeliverySystemStructure.js';
 
 const DeliveryDashboard = () => {
   const [activeTab, setActiveTab] = useState('orders');

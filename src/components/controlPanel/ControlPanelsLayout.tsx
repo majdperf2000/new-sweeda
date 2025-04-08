@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Separator } from '@/components/ui/separator';
-import { ControlPanel } from './ControlPanel';
-import { ControlPanelDetails } from './ControlPanelDetails';
-import { controlPanelsData } from './controlPanelData';
-import type { ControlPanelItem } from './types';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs.js';
+import { Separator } from '@/components/ui/separator.js';
+import { ControlPanel } from './ControlPanel.js';
+import { ControlPanelDetails } from './ControlPanelDetails.js';
+import { controlPanelsData } from './controlPanelData.js';
+import type { ControlPanelItem } from './types.js';
 
 interface ControlPanelsLayoutProps {
   initialActiveTab?: string;

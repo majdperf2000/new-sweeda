@@ -12,7 +12,7 @@ import {
   Map,
   BarChart4,
 } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card.js';
 
 const DeliverySystemStructure = () => {
   return (

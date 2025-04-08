@@ -1,8 +1,8 @@
 import React from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
-import type { ControlPanelItem } from './controlPanelData';
-import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
+import type { ControlPanelItem } from './controlPanelData.js';
+import { Button } from '@/components/ui/button.js';
+import { cn } from '@/lib/utils.js';
 
 interface ControlPanelItemProps {
   item: ControlPanelItemType;

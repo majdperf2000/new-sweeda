@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import DeliveryTypeSelection from './DeliveryTypeSelection';
-import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.js';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs.js';
+import DeliveryTypeSelection from './DeliveryTypeSelection.js';
+import { Button } from '@/components/ui/button.js';
 import {
   Truck,
   User,
@@ -17,7 +17,7 @@ import {
   Bike,
   Bike as BicycleAlternative,
 } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
+import { Badge } from '@/components/ui/Badge.js';
 import { toast } from 'sonner';
 
 const OrderAssignment = () => {

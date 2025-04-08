@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight, ShieldCheck, TrendingUp, CircleCheck } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.js';
 
 export const WorkflowTab: React.FC = () => {
   return (

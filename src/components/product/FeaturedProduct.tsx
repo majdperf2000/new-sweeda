@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import type { Product } from '@/utils/mockData';
+import { Button } from '@/components/ui/button.js';
+import type { Product } from '@/utils/mockData.js';
 
 interface FeaturedProductProps {
   product: Product;

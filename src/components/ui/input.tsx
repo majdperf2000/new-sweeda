@@ -1,7 +1,7 @@
 import * as React from 'react';
+import { cn } from '@/lib/utils.js';
 
-import { cn } from '@/lib/utils';
-
+// المكون الرئيسي Input
 const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<'input'>>(
   ({ className, type, ...props }, ref) => {
     return (
@@ -19,4 +19,8 @@ const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<'input'>>(
 );
 Input.displayName = 'Input';
 
-export { Input };
+// تمت إزالة مكون InputOTP من هذا الملف لتجنب التكرار
+// (تم نقله إلى ملف input-otp.tsx)
+
+export { Input }; // ◀️ تصدير المكون الرئيسي
+export default Input; // ◀️ تصدير افتراضي واحد فقط

@@ -1,0 +1,298 @@
+/* ==================== */
+/* CORE ANIMATIONS      */
+/* ==================== */
+:root {
+  --animation-duration: 0.6s;
+  --animation-delay-step: 0.15s;
+  --easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --easing-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --easing-accelerate: cubic-bezier(0.4, 0, 1, 1);
+}
+
+/* Base Keyframes */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-5px);
+  }
+  40%,
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+/* ==================== */
+/* UTILITY CLASSES      */
+/* ==================== */
+.animate {
+  animation-duration: var(--animation-duration);
+  animation-fill-mode: both;
+  animation-timing-function: var(--easing-standard);
+}
+
+.animate-delay-1 {
+  animation-delay: calc(var(--animation-delay-step) * 1);
+}
+.animate-delay-2 {
+  animation-delay: calc(var(--animation-delay-step) * 2);
+}
+.animate-delay-3 {
+  animation-delay: calc(var(--animation-delay-step) * 3);
+}
+
+.fade-in {
+  animation-name: fadeIn;
+}
+.slide-up {
+  animation-name: slideUp;
+}
+.slide-left {
+  animation-name: slideInLeft;
+}
+.slide-right {
+  animation-name: slideInRight;
+}
+.scale-in {
+  animation-name: scaleIn;
+}
+.pulse {
+  animation-name: pulse;
+  animation-iteration-count: infinite;
+}
+.float {
+  animation-name: float;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+}
+.shake {
+  animation-name: shake;
+  animation-duration: 0.5s;
+}
+
+/* ==================== */
+/* COMPONENT ANIMATIONS */
+/* ==================== */
+/* Hero Section */
+.hero__title {
+  animation: slideUp 0.8s var(--easing-decelerate) both;
+}
+
+.hero__subtitle {
+  animation: slideUp 0.8s var(--easing-decelerate) 0.2s both;
+}
+
+.hero__cta {
+  animation: scaleIn 0.6s var(--easing-standard) 0.4s both;
+}
+
+/* How It Works */
+.how-it-works__item {
+  opacity: 0;
+  animation: fadeIn var(--animation-duration) var(--easing-standard) forwards;
+}
+
+/* Featured Products */
+.product-card {
+  transition: all 0.4s var(--easing-standard);
+  transform-origin: center bottom;
+  animation: scaleIn 0.6s var(--easing-standard) both;
+}
+
+.product-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Daily Offers */
+.daily-offer__badge {
+  animation: pulse 2s var(--easing-standard) infinite;
+}
+
+.daily-offer__card {
+  transition: all 0.4s var(--easing-standard);
+}
+
+.daily-offer__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar */
+.navbar {
+  transition: all 0.3s var(--easing-standard);
+}
+
+.navbar--scrolled {
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Footer */
+.footer__link {
+  transition: transform 0.3s var(--easing-standard);
+}
+
+.footer__link:hover {
+  transform: translateX(5px);
+}
+
+/* ==================== */
+/* SCROLL ANIMATIONS    */
+/* ==================== */
+[data-animate] {
+  opacity: 0;
+  transition: all 0.8s var(--easing-decelerate);
+}
+
+[data-animate='fade'] {
+  animation: fadeIn var(--animation-duration) var(--easing-standard) forwards;
+}
+
+[data-animate='slide-up'] {
+  animation: slideUp var(--animation-duration) var(--easing-decelerate) forwards;
+}
+
+[data-animate='slide-left'] {
+  animation: slideInLeft var(--animation-duration) var(--easing-decelerate) forwards;
+}
+
+[data-animate='slide-right'] {
+  animation: slideInRight var(--animation-duration) var(--easing-decelerate) forwards;
+}
+
+/* ==================== */
+/* MICRO-INTERACTIONS   */
+/* ==================== */
+.btn-hover {
+  transition: all 0.3s var(--easing-standard);
+}
+
+.btn-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.input-focus {
+  transition: all 0.3s var(--easing-standard);
+}
+
+.input-focus:focus {
+  transform: scale(1.02);
+  box-shadow: 0 0 0 3px rgba(0, 120, 250, 0.1);
+}
+
+/* ==================== */
+/* LOADING ANIMATIONS   */
+/* ==================== */
+@keyframes loadingPulse {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.loading-pulse {
+  animation: loadingPulse 1.5s var(--easing-standard) infinite;
+}
+
+/* ==================== */
+/* SPECIAL EFFECTS      */
+/* ==================== */
+.parallax-element {
+  transition: transform 0.4s var(--easing-standard);
+}
+
+.hover-3d {
+  transition:
+    transform 0.4s var(--easing-standard),
+    box-shadow 0.4s var(--easing-standard);
+}
+
+.hover-3d:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(5deg) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}

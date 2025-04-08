@@ -1,0 +1,120 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.firebase.crashlytics' // إن كنت تستخدم Crashlytics
+
+android {
+    namespace "com.yourcompany.yourapp" // تم التحديث
+    compileSdk 34 // تم التحديث من rootProject.ext
+    defaultConfig {
+        applicationId "com.yourcompany.yourapp" // تم التحديث
+        minSdk 21 // تم التحديث من rootProject.ext
+        targetSdk 34 // تم التحديث من rootProject.ext
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        
+        // إعدادات متقدمة للأصول
+        aaptOptions {
+            ignoreAssetsPattern '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
+            additionalParameters "--warn-manifest-validation"
+        }
+
+        // إضافة تكوينات البناء المخصصة
+        buildConfigField "String", "API_BASE_URL", '"https://api.yourdomain.com"'
+        resValue "string", "app_name", "Your App Name"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("keystore.jks") // مسار ملف التوقيع
+            storePassword System.getenv("STORE_PASSWORD")
+            keyAlias System.getenv("KEY_ALIAS")
+            keyPassword System.getenv("KEY_PASSWORD")
+        }
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            debuggable true
+            manifestPlaceholders = [appName: "YourApp-Debug"]
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            manifestPlaceholders = [appName: "@string/app_name"]
+        }
+    }
+
+    // تحسينات أداء Gradle
+    buildFeatures {
+        buildConfig true
+        viewBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/*.md', 'META-INF/NOTICE.md', 'META-INF/LICENSE.md']
+        }
+    }
+}
+
+repositories {
+    flatDir {
+        dirs '../capacitor-cordova-android-plugins/src/main/libs', 'libs'
+    }
+    mavenCentral()
+    google() // إضافة مستودع Google
+}
+
+dependencies {
+    // إصدارات محددة بدلاً من متغيرات المشروع
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.coordinatorlayout:coordinatorlayout:1.2.0'
+    implementation 'androidx.core:core-splashscreen:1.0.1'
+    
+    // Capacitor Core
+    implementation project(':capacitor-android')
+    
+    // Capacitor Plugins
+    implementation project(':capacitor-cordova-android-plugins')
+    
+    // Firebase (اختياري)
+    implementation platform('com.google.firebase:firebase-bom:32.3.1')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-crashlytics'
+    
+    // Testing
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    
+    // مكتبات إضافية موصى بها
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.multidex:multidex:2.0.1' // إذا تجاوزت 64K method
+}
+
+apply from: 'capacitor.build.gradle'
+
+// تكوين Firebase (اختياري)
+'try' {
+    def servicesJSON = file('google-services.json')
+    if (servicesJSON.exists()) {
+        apply plugin: 'com.google.gms.google-services'
+        apply plugin: 'com.google.firebase.crashlytics'
+    }
+}
+
+// تحسينات أداء Gradle
+tasks.whenTaskAdded { task ->
+    if (task.name.contains("lint") || 
+        task.name.contains("Test")) {
+        task.enabled = false
+    }
+}

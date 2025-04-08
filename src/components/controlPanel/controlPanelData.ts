@@ -1,4 +1,4 @@
-import type { ControlPanel } from './types';
+import type { ControlPanel } from './types.js';
 
 export const controlPanelsData: ControlPanel[] = [
   {

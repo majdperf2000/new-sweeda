@@ -1,9 +1,9 @@
 import React from 'react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import type { PaymentSystemArchitectureProps } from './types';
-import { ProcessFlowTab } from './ProcessFlowTab';
-import { WorkflowTab } from './WorkflowTab';
-import { MetricsTab } from './MetricsTab';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs.js';
+import type { PaymentSystemArchitectureProps } from './types.js';
+import { ProcessFlowTab } from './ProcessFlowTab.js';
+import { WorkflowTab } from './WorkflowTab.js';
+import { MetricsTab } from './MetricsTab.js';
 
 const PaymentSystemArchitecture: React.FC<PaymentSystemArchitectureProps> = ({ paymentFlow }) => {
   return (

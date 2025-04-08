@@ -1,11 +1,11 @@
 import { Truck } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { OrderStatus } from './OrderStatus';
-import { TrackingMap } from './TrackingMap';
-import PaymentSystemArchitecture from '@/components/payment/PaymentSystemArchitecture';
-import { OrderDataFlow } from './OrderDataFlow';
-import type { PaymentFlow } from '@/components/payment/types';
+import { Button } from '@/components/ui/button.js';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs.js';
+import { OrderStatus } from './OrderStatus.js';
+import { TrackingMap } from './TrackingMap.js';
+import PaymentSystemArchitecture from '@/components/payment/PaymentSystemArchitecture.js';
+import { OrderDataFlow } from './OrderDataFlow.js';
+import type { PaymentFlow } from '@/components/payment/types.js';
 
 interface OrderTabsProps {
   orderData: string;

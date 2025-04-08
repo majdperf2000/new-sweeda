@@ -9,8 +9,8 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from '@/components/ui/navigation-menu';
-import { cn } from '@/lib/utils';
+} from '@/components/ui/navigation-menu.js';
+import { cn } from '@/lib/utils.js';
 
 const MainNavigation: React.FC = () => {
   return (

@@ -1,0 +1,83 @@
+body { background-color: red !important; }
+@layer base {
+  :root {
+    /* ================ Base Colors ================ */
+    --background: 210 33% 98%; /* #f8f9fa Light mode background */
+    --foreground: 198 19% 20%; /* #2d3436 Main text color */
+
+    /* ================ Surface Colors ================ */
+    --card: 0 0% 100%; /* #ffffff Card background */
+    --card-foreground: 198 19% 20%;
+    --popover: 0 0% 100%; /* #ffffff Popover background */
+    --popover-foreground: 198 19% 20%;
+
+    /* ================ Brand Colors ================ */
+    --primary: 0 100% 71%; /* #ff6b6b Primary brand color */
+    --primary-foreground: 255 255 100%; /* #ffffff White text */
+    --secondary: 174 63% 56%; /* #4ecdc4 Secondary brand color */
+    --secondary-foreground: 255 255 100%;
+
+    /* ================ State Colors ================ */
+    --destructive: 0 84% 60%; /* #dc3545 Error state */
+    --destructive-foreground: 255 255 100%;
+    --success: 142 71% 45%; /* #22c55e Success state */
+    --success-foreground: 255 255 100%;
+    --warning: 38 92% 50%; /* #f59e0b Warning state */
+    --warning-foreground: 255 255 100%;
+
+    /* ================ UI Elements ================ */
+    --muted: 210 40% 96%; /* #f1f5f9 Muted backgrounds */
+    --muted-foreground: 215 16% 47%; /* #64748b Muted text */
+    --accent: 193 55% 54%; /* #45b7d1 Accent color */
+    --accent-foreground: 255 255 100%;
+    --border: 214 32% 91%; /* #e2e8f0 Border color */
+    --input: 214 32% 91%; /* #e2e8f0 Input borders */
+    --ring: 174 63% 56%; /* #4ecdc4 Focus ring */
+
+    /* ================ Spacing & Sizing ================ */
+    --radius: 0.75rem; /* 12px Border radius */
+    --radius-sm: 0.5rem; /* 8px Small radius */
+    --radius-lg: 1rem; /* 16px Large radius */
+
+    /* ================ Elevation ================ */
+    --shadow-sm: 0 1px 2px 0 hsl(198 19% 20% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(198 19% 20% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(198 19% 20% / 0.1);
+  }
+
+  .dark {
+    /* ================ Dark Theme Overrides ================ */
+    --background: 198 19% 10%; /* #1a2021 Dark background */
+    --foreground: 210 40% 98%; /* #f8fafc Light text */
+
+    /* ================ Dark Surfaces ================ */
+    --card: 198 19% 15%; /* #222a2b Card background */
+    --popover: 198 19% 18%; /* #1f2728 Popover background */
+
+    /* ================ Dark UI Elements ================ */
+    --muted: 217 33% 18%; /* #1e293b Muted backgrounds */
+    --muted-foreground: 215 20% 65%; /* #94a3b8 Muted text */
+    --border: 217 33% 25%; /* #334155 Borders */
+    --input: 217 33% 25%; /* #334155 Input borders */
+
+    /* ================ Dark Elevation ================ */
+    --shadow-sm: 0 1px 3px 0 hsl(0 0% 0% / 0.25);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.3);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.35);
+  }
+
+  /* ================ Semantic Variables ================ */
+  :root {
+    --text-primary: var(--foreground);
+    --text-secondary: var(--muted-foreground);
+    --surface-primary: var(--background);
+    --surface-elevated: var(--card);
+    --border-default: var(--border);
+  }
+
+  /* ================ Transition Variables ================ */
+  :root {
+    --transition-default: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: 100ms ease-in-out;
+  }
+}

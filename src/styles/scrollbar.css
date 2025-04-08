@@ -1,0 +1,77 @@
+body { background-color: red !important; }
+/* ================ Scrollbar Styling ================ */
+/* Firefox scrollbar (modern browsers) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: theme('colors.muted.foreground/30') theme('colors.muted');
+}
+
+/* WebKit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  @apply transition-all duration-300;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/30 rounded-full;
+  border: 2px solid transparent;
+  background-clip: content-box;
+  @apply transition-colors duration-200;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground/50;
+}
+
+::-webkit-scrollbar-thumb:active {
+  @apply bg-muted-foreground/70;
+}
+
+::-webkit-scrollbar-corner {
+  @apply bg-muted;
+}
+
+/* ================ Custom Scrollbar Classes ================ */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-none {
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* WebKit */
+  }
+}
+
+.scrollbar-primary::-webkit-scrollbar-thumb {
+  @apply bg-primary/30;
+  &:hover {
+    @apply bg-primary/50;
+  }
+}
+
+/* ================ Smooth Scrolling ================ */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ================ Scroll Snap (optional) ================ */
+.scroll-snap-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+
+.scroll-snap-child {
+  scroll-snap-align: start;
+}

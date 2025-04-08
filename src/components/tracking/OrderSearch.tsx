@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { useToast } from '@/components/ui/use-toast';
+import { Button } from '@/components/ui/button.js';
+import { InputOTP } from '@/components/ui/input.js';
+import { Label } from '@/components/ui/label.js';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card.js';
+import { useToast } from '@/components/ui/use-toast.js';
 
 interface OrderSearchProps {
   onOrderFound: (orderData: string) => void;
@@ -114,11 +114,11 @@ export const OrderSearch = ({ onOrderFound, language }: OrderSearchProps) => {
             <Label htmlFor="orderNumber">
               {language === 'en' ? 'Order Number' : 'رقم الطلبية'}
             </Label>
-            <Input
+            <input
               id="orderNumber"
               placeholder={language === 'en' ? 'e.g. ORD-12345-6789' : 'مثال: ORD-12345-6789'}
               value={orderNumber}
-              onChange={(e) => setOrderNumber(e.target.value)}
+              onChange={() => setOrderNumber(e.target.value)}
             />
             <p className="text-xs text-muted-foreground">
               {language === 'en'

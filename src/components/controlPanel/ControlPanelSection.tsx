@@ -4,9 +4,9 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '@/components/ui/accordion';
-import { ControlPanelItem } from './ControlPanelItem';
-import type { ControlPanelItem as ControlPanelItemType } from './types';
+} from '@/components/ui/accordion.js';
+import { ControlPanelItem } from './ControlPanelItem.js';
+import type { ControlPanelItem as ControlPanelItemType } from './types.js';
 
 interface ControlPanelSectionProps {
   title: string;

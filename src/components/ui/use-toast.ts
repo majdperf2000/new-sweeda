@@ -1,3 +1,8 @@
-import { useToast, toast } from '@/hooks/use-toast';
+// إنشاء ملف use-toast.ts إذا كان مفقودًا
+import { toast } from 'sonner';
 
-export { useToast, toast };
+export const useToast = () => {
+  return {
+    toast: (message: string, options?: any) => toast(message, options),
+  };
+};

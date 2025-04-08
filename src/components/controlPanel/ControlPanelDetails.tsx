@@ -6,13 +6,13 @@ import {
   CardHeader,
   CardTitle,
   CardFooter,
-} from '@/components/ui/card';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { Separator } from '@/components/ui/separator';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Button } from '@/components/ui/button';
-import { Progress } from '@/components/ui/progress';
-import { Badge } from '@/components/ui/badge';
+} from '@/components/ui/card.js';
+import { ScrollArea } from '@/components/ui/scroll-area.js';
+import { Separator } from '@/components/ui/separator.js';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert.js';
+import { Button } from '@/components/ui/button.js';
+import { Progress } from '@/components/ui/progress.js';
+import { Badge } from '@/components/ui/Badge.js';
 import {
   Info,
   Users,
@@ -26,9 +26,9 @@ import {
   BarChart,
   Loader2,
 } from 'lucide-react';
-import type { ControlPanelItem } from './ControlPanelItem';
+import type { ControlPanelItem } from './ControlPanelItem.js';
 import { toast } from 'sonner';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs.js';
 
 interface ControlPanelDetailsProps {
   selectedItem?: ControlPanelItem;

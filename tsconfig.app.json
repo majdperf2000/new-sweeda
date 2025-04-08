@@ -1,5 +1,5 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "./tsconfig.base.json", // ✅ التصحيح: الإشارة إلى tsconfig.base.json بدلًا من tsconfig.json
   "compilerOptions": {
     "composite": true,
     "declaration": true,

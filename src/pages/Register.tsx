@@ -1,25 +1,24 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import MainLayout from '@/components/layout/MainLayout';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import MainLayout from '@/components/layout/MainLayout.js';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.js';
+import { Button } from '@/components/ui/button.js';
+import { InputOTP, InputOTPSlot } from '@/components/ui/input-otp.js';
+import { Label } from '@/components/ui/label.js';
+import { InputOTPGroup } from '@/components/ui/input-otp.js';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
-import { PageTransition } from '@/components/ui/page-transition';
-import { InputOTP, InputOTPGroup, InputOTPSlot } from '@/components/ui/input-otp';
-import { useToast } from '@/components/ui/use-toast';
+} from '@/components/ui/select.js';
+import { Input } from '@/components/ui/input.js';
+import PageTransition from '@/components/animations/page-transition.js';
+import { useToast } from '@/components/ui/use-toast.js';
 import { useNavigate } from 'react-router-dom';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { FileUpload } from '@/components/auth/FileUpload';
-import { toast } from 'sonner';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group.js';
+import { FileUpload } from '@/components/auth/FileUpload.js';
 import { User, Store, Truck, ShieldCheck, LayoutDashboard } from 'lucide-react';
 
 const Register = () => {
@@ -28,9 +27,9 @@ const Register = () => {
   );
   const [step, setStep] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  const [language, setLanguage] = useState<'en' | 'ar'>('ar');
+  const [language] = useState<'en' | 'ar'>('ar');
   const [otp, setOtp] = useState('');
-  const { toast } = useToast();
+  const {} = useToast();
   const navigate = useNavigate();
 
   const verifyDocuments = () => {
@@ -38,13 +37,6 @@ const Register = () => {
     setTimeout(() => {
       setIsLoading(false);
       setStep(step + 1);
-      toast({
-        title: language === 'en' ? 'Documents verified' : 'تم التحقق من المستندات',
-        description:
-          language === 'en'
-            ? 'Your documents have been verified successfully'
-            : 'تم التحقق من مستنداتك بنجاح',
-      });
     }, 2000);
   };
 
@@ -54,21 +46,8 @@ const Register = () => {
       setTimeout(() => {
         setIsLoading(false);
         setStep(step + 1);
-        toast({
-          title: language === 'en' ? 'OTP verified' : 'تم التحقق من الرمز',
-          description:
-            language === 'en' ? 'Your phone number has been verified' : 'تم التحقق من رقم هاتفك',
-        });
       }, 1500);
     } else {
-      toast({
-        variant: 'destructive',
-        title: language === 'en' ? 'Invalid OTP' : 'رمز غير صالح',
-        description:
-          language === 'en'
-            ? 'Please enter a valid 6-digit OTP'
-            : 'الرجاء إدخال رمز صالح مكون من 6 أرقام',
-      });
     }
   };
 
@@ -76,11 +55,6 @@ const Register = () => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-      toast({
-        title: language === 'en' ? 'Registration complete' : 'اكتمل التسجيل',
-        description:
-          language === 'en' ? 'Your account has been created successfully' : 'تم إنشاء حسابك بنجاح',
-      });
 
       switch (userType) {
         case 'customer':
@@ -111,7 +85,7 @@ const Register = () => {
           <div className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="email">{language === 'en' ? 'Email' : 'البريد الإلكتروني'}</Label>
-              <Input
+              <input
                 id="email"
                 type="email"
                 placeholder={language === 'en' ? 'your@email.com' : 'بريدك@الإلكتروني.كوم'}
@@ -121,7 +95,7 @@ const Register = () => {
               <Label htmlFor="phone">
                 {language === 'en' ? 'Phone Number (Optional)' : 'رقم الهاتف (اختياري)'}
               </Label>
-              <Input
+              <input
                 id="phone"
                 type="tel"
                 placeholder={language === 'en' ? '+963 XXX XXX XXX' : '963+ XXX XXX XXX'}
@@ -228,14 +202,14 @@ const Register = () => {
 
             <div className="space-y-2">
               <Label htmlFor="password">{language === 'en' ? 'Password' : 'كلمة المرور'}</Label>
-              <Input id="password" type="password" />
+              <input id="password" type="password" />
             </div>
 
             <div className="space-y-2">
               <Label htmlFor="confirmPassword">
                 {language === 'en' ? 'Confirm Password' : 'تأكيد كلمة المرور'}
               </Label>
-              <Input id="confirmPassword" type="password" />
+              <input id="confirmPassword" type="password" />
             </div>
 
             <Button onClick={completeRegistration} className="w-full mt-4" disabled={isLoading}>
@@ -283,7 +257,7 @@ const Register = () => {
           <div className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="storeName">{language === 'en' ? 'Store Name' : 'اسم المتجر'}</Label>
-              <Input
+              <input
                 id="storeName"
                 placeholder={language === 'en' ? 'Your Store Name' : 'اسم متجرك'}
               />
@@ -293,7 +267,7 @@ const Register = () => {
               <Label htmlFor="storeEmail">
                 {language === 'en' ? 'Business Email' : 'البريد الإلكتروني للعمل'}
               </Label>
-              <Input
+              <input
                 id="storeEmail"
                 type="email"
                 placeholder={language === 'en' ? 'store@example.com' : 'متجر@مثال.كوم'}
@@ -304,7 +278,7 @@ const Register = () => {
               <Label htmlFor="storePhone">
                 {language === 'en' ? 'Business Phone' : 'هاتف العمل'}
               </Label>
-              <Input
+              <input
                 id="storePhone"
                 type="tel"
                 placeholder={language === 'en' ? '+963 XXX XXX XXX' : '963+ XXX XXX XXX'}
@@ -315,7 +289,7 @@ const Register = () => {
               <Label htmlFor="storeAddress">
                 {language === 'en' ? 'Store Address' : 'عنوان المتجر'}
               </Label>
-              <Input
+              <input
                 id="storeAddress"
                 placeholder={language === 'en' ? 'Full address' : 'العنوان الكامل'}
               />
@@ -409,14 +383,14 @@ const Register = () => {
               <Label htmlFor="storePassword">
                 {language === 'en' ? 'Password' : 'كلمة المرور'}
               </Label>
-              <Input id="storePassword" type="password" />
+              <input id="storePassword" type="password" />
             </div>
 
             <div className="space-y-2">
               <Label htmlFor="storeConfirmPassword">
                 {language === 'en' ? 'Confirm Password' : 'تأكيد كلمة المرور'}
               </Label>
-              <Input id="storeConfirmPassword" type="password" />
+              <input id="storeConfirmPassword" type="password" />
             </div>
 
             <Button onClick={completeRegistration} className="w-full mt-4" disabled={isLoading}>
@@ -466,7 +440,7 @@ const Register = () => {
               <Label htmlFor="deliveryName">
                 {language === 'en' ? 'Full Name' : 'الاسم الكامل'}
               </Label>
-              <Input
+              <input
                 id="deliveryName"
                 placeholder={language === 'en' ? 'Your Full Name' : 'اسمك الكامل'}
               />
@@ -476,7 +450,7 @@ const Register = () => {
               <Label htmlFor="deliveryEmail">
                 {language === 'en' ? 'Email' : 'البريد الإلكتروني'}
               </Label>
-              <Input
+              <input
                 id="deliveryEmail"
                 type="email"
                 placeholder={language === 'en' ? 'your@email.com' : 'بريدك@الإلكتروني.كوم'}
@@ -487,7 +461,7 @@ const Register = () => {
               <Label htmlFor="deliveryPhone">
                 {language === 'en' ? 'Phone Number' : 'رقم الهاتف'}
               </Label>
-              <Input
+              <input
                 id="deliveryPhone"
                 type="tel"
                 placeholder={language === 'en' ? '+963 XXX XXX XXX' : '963+ XXX XXX XXX'}
@@ -702,7 +676,7 @@ const Register = () => {
           <div className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="adminName">{language === 'en' ? 'Full Name' : 'الاسم الكامل'}</Label>
-              <Input
+              <input
                 id="adminName"
                 placeholder={language === 'en' ? 'Admin Full Name' : 'اسم المدير الكامل'}
               />
@@ -712,7 +686,7 @@ const Register = () => {
               <Label htmlFor="adminEmail">
                 {language === 'en' ? 'Email' : 'البريد الإلكتروني'}
               </Label>
-              <Input
+              <input
                 id="adminEmail"
                 type="email"
                 placeholder={language === 'en' ? 'admin@example.com' : 'مدير@مثال.كوم'}
@@ -723,7 +697,7 @@ const Register = () => {
               <Label htmlFor="adminPhone">
                 {language === 'en' ? 'Phone Number' : 'رقم الهاتف'}
               </Label>
-              <Input
+              <input
                 id="adminPhone"
                 type="tel"
                 placeholder={language === 'en' ? '+963 XXX XXX XXX' : '963+ XXX XXX XXX'}
@@ -831,14 +805,14 @@ const Register = () => {
               <Label htmlFor="adminPassword">
                 {language === 'en' ? 'Password' : 'كلمة المرور'}
               </Label>
-              <Input id="adminPassword" type="password" />
+              <input id="adminPassword" type="password" />
             </div>
 
             <div className="space-y-2">
               <Label htmlFor="adminConfirmPassword">
                 {language === 'en' ? 'Confirm Password' : 'تأكيد كلمة المرور'}
               </Label>
-              <Input id="adminConfirmPassword" type="password" />
+              <input id="adminConfirmPassword" type="password" />
             </div>
 
             <Button onClick={completeRegistration} className="w-full mt-4" disabled={isLoading}>
@@ -886,7 +860,7 @@ const Register = () => {
           <div className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="ownerName">{language === 'en' ? 'Full Name' : 'الاسم الكامل'}</Label>
-              <Input
+              <input
                 id="ownerName"
                 placeholder={language === 'en' ? 'Owner Full Name' : 'اسم المالك الكامل'}
               />
@@ -896,7 +870,7 @@ const Register = () => {
               <Label htmlFor="ownerEmail">
                 {language === 'en' ? 'Email' : 'البريد الإلكتروني'}
               </Label>
-              <Input
+              <input
                 id="ownerEmail"
                 type="email"
                 placeholder={language === 'en' ? 'owner@example.com' : 'مالك@مثال.كوم'}
@@ -907,7 +881,7 @@ const Register = () => {
               <Label htmlFor="ownerPhone">
                 {language === 'en' ? 'Phone Number' : 'رقم الهاتف'}
               </Label>
-              <Input
+              <input
                 id="ownerPhone"
                 type="tel"
                 placeholder={language === 'en' ? '+963 XXX XXX XXX' : '963+ XXX XXX XXX'}
@@ -1013,14 +987,14 @@ const Register = () => {
               <Label htmlFor="ownerPassword">
                 {language === 'en' ? 'Password' : 'كلمة المرور'}
               </Label>
-              <Input id="ownerPassword" type="password" />
+              <input id="ownerPassword" type="password" />
             </div>
 
             <div className="space-y-2">
               <Label htmlFor="ownerConfirmPassword">
                 {language === 'en' ? 'Confirm Password' : 'تأكيد كلمة المرور'}
               </Label>
-              <Input id="ownerConfirmPassword" type="password" />
+              <input id="ownerConfirmPassword" type="password" />
             </div>
 
             <Button onClick={completeRegistration} className="w-full mt-4" disabled={isLoading}>

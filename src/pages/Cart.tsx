@@ -2,13 +2,12 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Trash2, Plus, Minus, ShoppingBag, CreditCard, ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
-import { PageTransition } from '@/components/ui/page-transition';
-import MainLayout from '@/components/layout/MainLayout';
-import { products } from '@/utils/mockData';
-
-// Mock cart items
+import { Button } from '@/components/ui/button.js';
+import { Separator } from '@/components/ui/separator.js';
+import PageTransition from '@/components/animations/page-transition.js';
+import MainLayout from '@/components/layout/MainLayout.js';
+import { products } from '@/utils/mockData.js';
+// Mock cart itemss
 const initialCartItems = [
   { product: products[0], quantity: 1 },
   { product: products[2], quantity: 1 },
